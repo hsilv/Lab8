@@ -4,10 +4,10 @@
     >
     <item
         android:id="@+id/menu_character_sort_aToZ"
-        android:title="Ordenar: A - Z"
+        android:title="@string/aToZ__title"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_character_sort_zToA"
-        android:title="Ordenar: Z - A"
+        android:title="@string/zToA__title"
         app:showAsAction="never"/>
 </menu>

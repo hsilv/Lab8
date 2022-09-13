@@ -40,6 +40,13 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.1'
+
+    def fragment_version = "1.5.2"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
+    def coil_version = "2.2.0"
+    implementation "io.coil-kt:coil:$coil_version"
+
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

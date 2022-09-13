@@ -9,4 +9,8 @@
     <string name="species_detail_string">Human</string>
     <string name="status_details_string">Alive</string>
     <string name="gender_details_string">Male</string>
+    <string name="aToZ__title">Ordenar: A - Z</string>
+    <string name="zToA__title">Ordenar: Z - A</string>
+    <string name="item_character_stats_info">Human - Alive</string>
+    <string name="item_character_name">Rick Sanchez</string>
 </resources>

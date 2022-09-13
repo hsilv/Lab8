@@ -25,18 +25,18 @@
             app:popUpTo="@id/charactersFragment"
             app:popUpToInclusive="true"/>
         <argument
-            android:name="Species"
+            android:name="species"
             app:argType="string" />
-        <argument android:name="Status"
-            app:argType="string" />
-        <argument
-            android:name="Gender"
+        <argument android:name="status"
             app:argType="string" />
         <argument
-            android:name="Name"
+            android:name="gender"
             app:argType="string" />
         <argument
-            android:name="ImageURL"
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="imageURL"
             app:argType="string" />
     </fragment>
 </navigation>

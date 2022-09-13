@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/character_item_layout">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/item_image_width"
+        android:layout_height="@dimen/item_image_height"
+        android:id="@+id/character_item_circleImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/tab_size"
+        android:src="@drawable/rick"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_item_name"
+        app:layout_constraintTop_toTopOf="@id/character_item_circleImageView"
+        app:layout_constraintStart_toEndOf="@id/character_item_circleImageView"
+        android:text="@string/item_character_name"
+        android:layout_marginStart="@dimen/tab_size"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_item_stats"
+        app:layout_constraintStart_toEndOf="@id/character_item_circleImageView"
+        app:layout_constraintBottom_toBottomOf="@id/character_item_circleImageView"
+        android:text="@string/item_character_stats_info"
+        android:layout_marginStart="@dimen/tab_size"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

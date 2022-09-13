@@ -7,10 +7,10 @@
     tools:context=".CharacterDetailsFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/topMargin_profile_image"
         android:id="@+id/profile_image"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="@dimen/profile_image_width"
+        android:layout_height="@dimen/profile_image_height"
         android:src="@drawable/rick"
         app:civ_border_width="0dp"
         app:civ_border_color="#FF000000"
@@ -20,25 +20,25 @@
         app:layout_constraintBottom_toTopOf="@id/character_name"/>
 
     <TextView
-        android:layout_marginVertical="16dp"
+        android:layout_marginVertical="@dimen/vertical_distance_name"
         android:id="@+id/character_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/character_name"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="@dimen/name_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_image"
         app:layout_constraintBottom_toTopOf="@id/species_title"/>
 
     <TextView
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/top_distance_details"
         android:id="@+id/species_title"
         app:layout_constraintTop_toBottomOf="@id/character_name"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="@dimen/border_distance"
         android:text="@string/species_title"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/species_title"
         app:layout_constraintStart_toStartOf="@id/species_title"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/top_distance_details"
         android:text="@string/status_title"
         app:layout_constraintBottom_toTopOf="@id/gender_title"/>
 
@@ -61,7 +61,7 @@
         app:layout_constraintStart_toStartOf="@id/species_title"
         android:text="@string/gender_title"
         app:layout_constraintTop_toBottomOf="@id/status_title"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="@dimen/top_distance_details" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toTopOf="@id/species_title"
         app:layout_constraintBottom_toBottomOf="@id/species_title"
         android:text="@string/species_detail_string"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="@dimen/border_distance"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toTopOf="@id/status_title"
         app:layout_constraintBottom_toBottomOf="@id/status_title"
         android:text="@string/status_details_string"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="@dimen/border_distance"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toTopOf="@id/gender_title"
         app:layout_constraintBottom_toBottomOf="@id/gender_title"
         android:text="@string/gender_details_string"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="@dimen/border_distance"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
