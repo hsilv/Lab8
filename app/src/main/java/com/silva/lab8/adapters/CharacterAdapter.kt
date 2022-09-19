@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.request.CachePolicy
 import com.silva.lab8.R
-import com.silva.lab8.db.CharacterRM
+import com.silva.lab8.datasource.model.CharacterDTO
 import de.hdodenhof.circleimageview.CircleImageView
 
 class CharacterAdapter(
-    private val dataSet: MutableList<CharacterRM>,
+    private val dataSet: MutableList<CharacterDTO>,
     private val listener: RecyclerViewCharacterClickHandler
     ) : RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
@@ -25,10 +25,10 @@ class CharacterAdapter(
         private val CharacterStats: TextView = view.findViewById(R.id.character_item_stats)
         private val CharacterName: TextView = view.findViewById(R.id.character_item_name)
         private val layoutCharacterRM: ConstraintLayout = view.findViewById(R.id.character_item_layout)
-        fun setData(character: CharacterRM){
+        fun setData(character: CharacterDTO){
             CharacterStats.text = character.species + " - " + character.status
             CharacterName.text = character.name
-            CharacterImage.load(character.image){
+            CharacterImage.load("https://rickandmortyapi.com/api/character/avatar/10.jpeg"){
                 memoryCachePolicy(CachePolicy.DISABLED)
                 diskCachePolicy(CachePolicy.DISABLED)
                 crossfade(enable = true)
@@ -43,7 +43,7 @@ class CharacterAdapter(
     }
 
     interface RecyclerViewCharacterClickHandler{
-        fun onCharacterClicked(character: CharacterRM)
+        fun onCharacterClicked(character: CharacterDTO)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.character_item_layout, parent, false)

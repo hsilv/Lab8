@@ -13,4 +13,8 @@
     <string name="zToA__title">Ordenar: Z - A</string>
     <string name="item_character_stats_info">Human - Alive</string>
     <string name="item_character_name">Rick Sanchez</string>
+    <string name="origin_details_title">Origin:</string>
+    <string name="episode_appearances_details_title">Episode Appearances:</string>
+    <string name="episode_appearances_details">100</string>
+    <string name="origin_details">Earth</string>
 </resources>

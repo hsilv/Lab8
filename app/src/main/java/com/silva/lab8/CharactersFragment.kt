@@ -8,13 +8,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.silva.lab8.adapters.CharacterAdapter
+import com.silva.lab8.datasource.api.RetrofitInstance
+import com.silva.lab8.datasource.model.CharacterDTO
+import com.silva.lab8.datasource.model.CharacterResponse
 import com.silva.lab8.db.CharacterRM
 import com.silva.lab8.db.RickAndMortyDB
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CharactersFragment : Fragment(R.layout.fragment_characters), CharacterAdapter.RecyclerViewCharacterClickHandler {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var characterList: MutableList<CharacterRM>
+    private lateinit var characterList: MutableList<CharacterDTO>
     private lateinit var toolbar: MaterialToolbar
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.characters_recyclerView)
@@ -23,6 +30,7 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), CharacterAdap
         setListeners()
 
     }
+
 
     private fun setListeners() {
         toolbar.setOnMenuItemClickListener{menuItem->
@@ -43,15 +51,31 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), CharacterAdap
     }
 
     private fun setUpRecycler() {
-        characterList = RickAndMortyDB.getCharacters()
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = CharacterAdapter(characterList, this)
+        var listenerInstance = this
+        RetrofitInstance.api.getCharacter().enqueue(object : Callback<CharacterResponse>{
+            override fun onResponse(
+                call: Call<CharacterResponse>,
+                response: Response<CharacterResponse>
+            ) {
+                if(response.isSuccessful){
+                    println(response.body())
+                    characterList = response.body()?.results as MutableList<CharacterDTO>
+                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                    recyclerView.setHasFixedSize(true)
+                    recyclerView.adapter = CharacterAdapter(characterList, listenerInstance)
+                }
+            }
+
+            override fun onFailure(call: Call<CharacterResponse>, t: Throwable) {
+                println("Error")
+            }
+
+        })
     }
 
-    override fun onCharacterClicked(character: CharacterRM) {
+    override fun onCharacterClicked(character: CharacterDTO) {
         val action = CharactersFragmentDirections.actionCharactersFragmentToCharacterDetailsFragment(
-            character.species, character.status, character.gender, character.name, character.image
+            character.id
         )
         requireView().findNavController().navigate(action)
     }
