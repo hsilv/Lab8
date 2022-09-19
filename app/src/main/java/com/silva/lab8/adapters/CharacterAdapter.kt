@@ -29,12 +29,12 @@ class CharacterAdapter(
             CharacterStats.text = character.species + " - " + character.status
             CharacterName.text = character.name
             CharacterImage.load(character.image){
-                memoryCachePolicy(CachePolicy.DISABLED)
-                diskCachePolicy(CachePolicy.DISABLED)
                 crossfade(enable = true)
                 crossfade(450)
                 placeholder(R.drawable.downloading_icon)
                 error(R.drawable.error_icon)
+                memoryCachePolicy(CachePolicy.ENABLED)
+                diskCachePolicy(CachePolicy.DISABLED)
             }
             layoutCharacterRM.setOnClickListener{
                 listener.onCharacterClicked(character)
