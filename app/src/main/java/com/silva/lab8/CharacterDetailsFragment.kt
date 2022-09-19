@@ -37,20 +37,45 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
         origin = view.findViewById(R.id.origin_details)
         appearances = view.findViewById(R.id.episode_details)
 
-        RetrofitInstance.api.getCharacterById(args.id.toString()).enqueue(object : Callback<CharacterDTO> {
-            override fun onResponse(call: Call<CharacterDTO>, response: Response<CharacterDTO>) {
-                name.text = response.body()?.name
-                species.text = response.body()?.species
-                status.text = response.body()?.status
-                gender.text = response.body()?.gender
-                origin.text = response.body()?.origin?.name
-                appearances.text = response.body()?.episode?.size.toString()
-            }
+        RetrofitInstance.api.getCharacterById(args.id.toString())
+            .enqueue(object : Callback<CharacterDTO> {
+                override fun onResponse(
+                    call: Call<CharacterDTO>,
+                    response: Response<CharacterDTO>
+                ) {
+                    name.text = response.body()?.name
+                    species.text = response.body()?.species
+                    status.text = response.body()?.status
+                    gender.text = response.body()?.gender
+                    origin.text = response.body()?.origin?.name
+                    appearances.text = response.body()?.episode?.size.toString()
+                    characterPicture.load(response.body()?.image) {
+                        crossfade(450)
+                        crossfade(true)
+                        placeholder(R.drawable.downloading_icon)
+                        error(R.drawable.error_icon)
+                        memoryCachePolicy(CachePolicy.ENABLED)
+                        diskCachePolicy(CachePolicy.ENABLED)
+                    }
+                }
 
-            override fun onFailure(call: Call<CharacterDTO>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
+                override fun onFailure(call: Call<CharacterDTO>, t: Throwable) {
+                    characterPicture.load("") {
+                        crossfade(450)
+                        crossfade(true)
+                        placeholder(R.drawable.downloading_icon)
+                        error(R.drawable.error_icon)
+                        memoryCachePolicy(CachePolicy.ENABLED)
+                        diskCachePolicy(CachePolicy.ENABLED)
+                    }
+                    name.text = ""
+                    species.text = ""
+                    status.text = ""
+                    gender.text = ""
+                    origin.text = ""
+                    appearances.text = ""
+                }
+            })
 
 
     }

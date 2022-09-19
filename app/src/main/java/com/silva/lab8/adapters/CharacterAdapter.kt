@@ -28,7 +28,7 @@ class CharacterAdapter(
         fun setData(character: CharacterDTO){
             CharacterStats.text = character.species + " - " + character.status
             CharacterName.text = character.name
-            CharacterImage.load("https://rickandmortyapi.com/api/character/avatar/10.jpeg"){
+            CharacterImage.load(character.image){
                 memoryCachePolicy(CachePolicy.DISABLED)
                 diskCachePolicy(CachePolicy.DISABLED)
                 crossfade(enable = true)

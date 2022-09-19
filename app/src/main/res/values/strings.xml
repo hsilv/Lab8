@@ -2,19 +2,19 @@
     <string name="app_name">Lab8</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="character_name">Rick 481</string>
+    <string name="character_name">-</string>
     <string name="species_title">Species:</string>
     <string name="status_title">Status:</string>
     <string name="gender_title">Gender:</string>
-    <string name="species_detail_string">Human</string>
-    <string name="status_details_string">Alive</string>
-    <string name="gender_details_string">Male</string>
+    <string name="species_detail_string">-</string>
+    <string name="status_details_string">-</string>
+    <string name="gender_details_string">-</string>
     <string name="aToZ__title">Ordenar: A - Z</string>
     <string name="zToA__title">Ordenar: Z - A</string>
-    <string name="item_character_stats_info">Human - Alive</string>
-    <string name="item_character_name">Rick Sanchez</string>
+    <string name="item_character_stats_info">-</string>
+    <string name="item_character_name">-</string>
     <string name="origin_details_title">Origin:</string>
     <string name="episode_appearances_details_title">Episode Appearances:</string>
-    <string name="episode_appearances_details">100</string>
-    <string name="origin_details">Earth</string>
+    <string name="episode_appearances_details">-</string>
+    <string name="origin_details">-</string>
 </resources>
