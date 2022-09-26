@@ -20,7 +20,7 @@ import retrofit2.Response
 class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
     private lateinit var characterPicture: CircleImageView
     private lateinit var name: TextView
-    private lateinit var species: TextView
+    private lateinit var species: TextVie
     private lateinit var status: TextView
     private lateinit var gender: TextView
     private lateinit var origin: TextView
