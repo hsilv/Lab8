@@ -13,6 +13,9 @@ import com.silva.lab8.datasource.model.CharacterDTO
 import com.silva.lab8.datasource.model.CharacterResponse
 import com.silva.lab8.db.CharacterRM
 import com.silva.lab8.db.RickAndMortyDB
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,6 +46,17 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), CharacterAdap
                 R.id.menu_character_sort_zToA ->{
                     characterList.sortByDescending { characterRM -> characterRM.name  }
                     recyclerView.adapter?.notifyDataSetChanged()
+                    true
+                }
+                R.id.menu_logout -> {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        requireContext().dataStore.removePreferencesValue(NAME)
+                        CoroutineScope(Dispatchers.Main).launch {
+                            requireView().findNavController().navigate(
+                                CharactersFragmentDirections.actionCharactersFragmentToLoginFragment()
+                            )
+                        }
+                    }
                     true
                 }
                 else -> true

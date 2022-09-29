@@ -10,4 +10,8 @@
         android:id="@+id/menu_character_sort_zToA"
         android:title="@string/zToA__title"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_logout"
+        android:title="@string/logout_hint"
+        app:showAsAction="never"/>
 </menu>

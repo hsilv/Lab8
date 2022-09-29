@@ -17,4 +17,9 @@
     <string name="episode_appearances_details_title">Episode Appearances:</string>
     <string name="episode_appearances_details">-</string>
     <string name="origin_details">-</string>
+    <string name="email_input">sil21764@uvg.edu.gt</string>
+    <string name="password_hint">Ingrese su contraseña</string>
+    <string name="email_hint">Ingrese su correo</string>
+    <string name="login_button_hint">Iniciar sesion</string>
+    <string name="logout_hint">Cerrar sesión</string>
 </resources>
