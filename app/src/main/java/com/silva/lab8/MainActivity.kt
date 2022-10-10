@@ -1,6 +1,7 @@
 package com.silva.lab8
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragment_container_view_mainActivity) as NavHostFragment
         navController = navHostFragment.navController
         toolbar = findViewById(R.id.toolbar_mainActivity)
-        appBarConfig = AppBarConfiguration(navController.graph)
+        appBarConfig = AppBarConfiguration(setOf(R.id.loginFragment, R.id.charactersFragment))
         toolbar.setupWithNavController(navController, appBarConfig)
         listenToNavGraphChanges()
     }
@@ -29,22 +30,13 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.characterDetailsFragment -> {
-                    appBarConfig = AppBarConfiguration(navController.graph)
-                    toolbar.setupWithNavController(navController, appBarConfig)
-                    toolbar.title = "Character Detail"
                     toolbar.isVisible = true
-                    toolbar.menu.findItem(R.id.menu_character_sort_aToZ).isVisible = false
-                    toolbar.menu.findItem(R.id.menu_character_sort_zToA).isVisible = false
-                    toolbar.menu.findItem(R.id.menu_logout).isVisible = false
+                    toolbar.menu.clear()
                 }
                 R.id.charactersFragment -> {
-                    appBarConfig = AppBarConfiguration(setOf(R.id.charactersFragment))
-                    toolbar.setupWithNavController(navController, appBarConfig)
-                    toolbar.title = "Characters"
                     toolbar.isVisible = true
-                    toolbar.menu.findItem(R.id.menu_character_sort_aToZ).isVisible = true
-                    toolbar.menu.findItem(R.id.menu_character_sort_zToA).isVisible = true
-                    toolbar.menu.findItem(R.id.menu_logout).isVisible = true
+                    toolbar.menu.clear()
+                    toolbar.inflateMenu(R.menu.menu_characters)
                 }
                 R.id.loginFragment -> {
                     toolbar.isVisible = false

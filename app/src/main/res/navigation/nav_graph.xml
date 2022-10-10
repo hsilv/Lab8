@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/charactersFragment"
         android:name="com.silva.lab8.CharactersFragment"
-        android:label="fragment_characters"
+        android:label="Characters"
         tools:layout="@layout/fragment_characters" >
         <action
             android:id="@+id/action_charactersFragment_to_characterDetailsFragment"
@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="com.silva.lab8.CharacterDetailsFragment"
-        android:label="fragment_character_details"
+        android:label="Details"
         tools:layout="@layout/fragment_character_details" >
         <action
             android:id="@+id/action_characterDetailsFragment_to_charactersFragment"
@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.silva.lab8.LoginFragment"
-        android:label="login_fragment"
+        android:label="Login"
         tools:layout="@layout/login_fragment" >
         <action
             android:id="@+id/action_loginFragment_to_charactersFragment"

@@ -2,17 +2,18 @@ package com.silva.lab8
 
 import android.os.Bundle
 import android.view.View
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
+import com.silva.lab8.LoginFragment.Companion.dataStore
 import com.silva.lab8.adapters.CharacterAdapter
 import com.silva.lab8.datasource.api.RetrofitInstance
 import com.silva.lab8.datasource.model.CharacterDTO
 import com.silva.lab8.datasource.model.CharacterResponse
-import com.silva.lab8.db.CharacterRM
-import com.silva.lab8.db.RickAndMortyDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,11 +25,14 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), CharacterAdap
     private lateinit var recyclerView: RecyclerView
     private lateinit var characterList: MutableList<CharacterDTO>
     private lateinit var toolbar: MaterialToolbar
+    private lateinit var loginFragment: LoginFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.characters_recyclerView)
         toolbar = (activity as MainActivity).getToolbar()
+        characterList = mutableListOf()
+        loginFragment = LoginFragment()
         setUpRecycler()
         setListeners()
 
@@ -49,14 +53,12 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), CharacterAdap
                     true
                 }
                 R.id.menu_logout -> {
-                    CoroutineScope(Dispatchers.IO).launch {
-                        requireContext().dataStore.removePreferencesValue(NAME)
-                        CoroutineScope(Dispatchers.Main).launch {
-                            requireView().findNavController().navigate(
-                                CharactersFragmentDirections.actionCharactersFragmentToLoginFragment()
-                            )
-                        }
-                    }
+                   CoroutineScope(Dispatchers.IO).launch{
+                       requireActivity().dataStore.edit { settings -> settings.remove(
+                           stringPreferencesKey("mail")
+                       )}
+                   }
+                    requireView().findNavController().navigate(R.id.action_charactersFragment_to_loginFragment)
                     true
                 }
                 else -> true
