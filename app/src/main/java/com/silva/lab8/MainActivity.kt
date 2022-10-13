@@ -1,7 +1,6 @@
 package com.silva.lab8
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
@@ -32,11 +31,19 @@ class MainActivity : AppCompatActivity() {
                 R.id.characterDetailsFragment -> {
                     toolbar.isVisible = true
                     toolbar.menu.clear()
+                    toolbar.inflateMenu(R.menu.menu_characters)
+                    toolbar.menu.findItem(R.id.menu_details_delete).isVisible = true
+                    toolbar.menu.findItem(R.id.menu_sync).isVisible = true
+                    toolbar.menu.findItem(R.id.menu_logout).isVisible = false
+                    toolbar.menu.findItem(R.id.menu_character_sort_zToA).isVisible = false
+                    toolbar.menu.findItem(R.id.menu_character_sort_aToZ).isVisible = false
+
                 }
                 R.id.charactersFragment -> {
                     toolbar.isVisible = true
                     toolbar.menu.clear()
                     toolbar.inflateMenu(R.menu.menu_characters)
+                    toolbar.menu.findItem(R.id.menu_details_delete).isVisible = false
                 }
                 R.id.loginFragment -> {
                     toolbar.isVisible = false

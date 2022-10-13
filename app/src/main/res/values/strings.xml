@@ -22,4 +22,6 @@
     <string name="email_hint">Ingrese su correo</string>
     <string name="login_button_hint">Iniciar sesion</string>
     <string name="logout_hint">Cerrar sesión</string>
+    <string name="sync_hint">Sincronizar</string>
+    <string name="delete_hint">Eliminar</string>
 </resources>
