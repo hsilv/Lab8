@@ -3,9 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="character_name">-</string>
-    <string name="species_title">Species:</string>
-    <string name="status_title">Status:</string>
-    <string name="gender_title">Gender:</string>
+    <string name="species_title">Species</string>
+    <string name="status_title">Status</string>
+    <string name="gender_title">Gender</string>
     <string name="species_detail_string">-</string>
     <string name="status_details_string">-</string>
     <string name="gender_details_string">-</string>
@@ -13,8 +13,8 @@
     <string name="zToA__title">Ordenar: Z - A</string>
     <string name="item_character_stats_info">-</string>
     <string name="item_character_name">-</string>
-    <string name="origin_details_title">Origin:</string>
-    <string name="episode_appearances_details_title">Episode Appearances:</string>
+    <string name="origin_details_title">Origin</string>
+    <string name="episode_appearances_details_title">Episode Appearances</string>
     <string name="episode_appearances_details">-</string>
     <string name="origin_details">-</string>
     <string name="email_input">sil21764@uvg.edu.gt</string>
@@ -24,4 +24,6 @@
     <string name="logout_hint">Cerrar sesión</string>
     <string name="sync_hint">Sincronizar</string>
     <string name="delete_hint">Eliminar</string>
+    <string name="name_title">Name</string>
+    <string name="save_button_hint">Guardar</string>
 </resources>

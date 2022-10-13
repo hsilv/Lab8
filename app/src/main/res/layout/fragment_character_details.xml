@@ -1,130 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CharacterDetailsFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_marginTop="@dimen/topMargin_profile_image"
         android:id="@+id/profile_image"
         android:layout_width="@dimen/profile_image_width"
         android:layout_height="@dimen/profile_image_height"
-        app:civ_border_width="0dp"
+        android:layout_marginTop="@dimen/topMargin_profile_image"
         app:civ_border_color="#FF000000"
+        app:civ_border_width="0dp"
+        app:layout_constraintBottom_toTopOf="@id/name_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginVertical="12dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginVertical="6dp"
+        android:id="@+id/name_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/name_title"
+        app:layout_constraintBottom_toTopOf="@id/species_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_image">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginVertical="6dp"
+        android:id="@+id/species_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/species_title"
+        app:layout_constraintBottom_toTopOf="@id/status_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_input_layout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginVertical="6dp"
+        android:id="@+id/status_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/status_title"
+        app:layout_constraintBottom_toTopOf="@id/gender_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/species_input_layout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginVertical="6dp"
+        android:id="@+id/gender_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/gender_title"
+        app:layout_constraintBottom_toTopOf="@id/origin_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/status_input_layout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginVertical="6dp"
+        android:id="@+id/origin_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/origin_details_title"
+        app:layout_constraintBottom_toTopOf="@id/episodes_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gender_input_layout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginVertical="6dp"
+        android:id="@+id/episodes_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/episode_appearances_details_title"
+        app:layout_constraintBottom_toTopOf="@id/save_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/origin_input_layout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/save_button_hint"
+        app:layout_constraintTop_toBottomOf="@id/episodes_input_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/character_name"/>
-
-    <TextView
-        android:layout_marginVertical="@dimen/vertical_distance_name"
-        android:id="@+id/character_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/character_name"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="@dimen/name_size"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_image"
-        app:layout_constraintBottom_toTopOf="@id/species_title"/>
-
-    <TextView
-        android:layout_marginTop="@dimen/top_distance_details"
-        android:id="@+id/species_title"
-        app:layout_constraintTop_toBottomOf="@id/character_name"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="@dimen/border_distance"
-        android:text="@string/species_title"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/status_title" />
-
-    <TextView
-        android:id="@+id/status_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/species_title"
-        app:layout_constraintStart_toStartOf="@id/species_title"
-        android:layout_marginTop="@dimen/top_distance_details"
-        android:text="@string/status_title"
-        app:layout_constraintBottom_toTopOf="@id/gender_title"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gender_title"
-        app:layout_constraintStart_toStartOf="@id/species_title"
-        android:text="@string/gender_title"
-        app:layout_constraintTop_toBottomOf="@id/status_title"
-        android:layout_marginTop="@dimen/top_distance_details" />
-
-    <TextView
-        android:id="@+id/species_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/border_distance"
-        android:text="@string/species_detail_string"
-        app:layout_constraintBottom_toBottomOf="@id/species_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/species_title" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/status_details"
-        app:layout_constraintEnd_toEndOf="@id/species_details"
-        app:layout_constraintTop_toTopOf="@id/status_title"
-        app:layout_constraintBottom_toBottomOf="@id/status_title"
-        android:text="@string/status_details_string"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gender_details"
-        app:layout_constraintEnd_toEndOf="@id/species_details"
-        app:layout_constraintTop_toTopOf="@id/gender_title"
-        app:layout_constraintBottom_toBottomOf="@id/gender_title"
-        android:text="@string/gender_details_string"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/origin_title"
-        android:text="@string/origin_details_title"
-        app:layout_constraintStart_toStartOf="@id/species_title"
-        app:layout_constraintTop_toBottomOf="@id/gender_title"
-        android:layout_marginTop="@dimen/top_distance_details"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/episode_title"
-        android:text="@string/episode_appearances_details_title"
-        app:layout_constraintStart_toStartOf="@id/species_title"
-        app:layout_constraintTop_toBottomOf="@id/origin_details"
-        android:layout_marginTop="@dimen/top_distance_details"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/episode_details"
-        android:text="@string/episode_appearances_details"
-        app:layout_constraintEnd_toEndOf="@id/species_details"
-        app:layout_constraintBottom_toBottomOf="@id/episode_title"
-        app:layout_constraintTop_toTopOf="@id/episode_title"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/origin_details"
-        android:text="@string/origin_details"
-        app:layout_constraintEnd_toEndOf="@id/species_details"
-        app:layout_constraintBottom_toBottomOf="@id/origin_title"
-        app:layout_constraintTop_toTopOf="@id/origin_title"
-        />
+        android:layout_marginHorizontal="32dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
